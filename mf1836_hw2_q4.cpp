@@ -41,12 +41,12 @@ int main() {
             
         } while (firstNumber < 0 || secondNumber < 0);
         
-        cout << firstNumber << " + " << secondNumber << " = " << firstNumber + secondNumber << endl;
-        cout << firstNumber << " - " << secondNumber << " = " << firstNumber - secondNumber << endl;
-        cout << firstNumber << " * " << secondNumber << " = " << firstNumber * secondNumber << endl;
-        cout << firstNumber << " / " << secondNumber << " = " << (float)firstNumber / (float)secondNumber << endl;
-        cout << firstNumber << " div " << secondNumber << " = " << firstNumber / secondNumber << endl;
-        cout << firstNumber << " mod " << secondNumber << " = " << firstNumber % secondNumber << endl;
+            cout << firstNumber << " + " << secondNumber << " = " << firstNumber + secondNumber << endl;
+            cout << firstNumber << " - " << secondNumber << " = " << firstNumber - secondNumber << endl;
+            cout << firstNumber << " * " << secondNumber << " = " << firstNumber * secondNumber << endl;
+            cout << firstNumber << " / " << secondNumber << " = " << (float)firstNumber / (float)secondNumber << endl;
+            cout << firstNumber << " div " << secondNumber << " = " << firstNumber / secondNumber << endl;
+            cout << firstNumber << " mod " << secondNumber << " = " << firstNumber % secondNumber << endl;
 
     }
     
