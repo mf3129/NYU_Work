@@ -30,6 +30,7 @@
 
 #include <iostream>
 #include <cmath>
+#include <iomanip>
 
 using namespace std;
 
@@ -39,6 +40,7 @@ int main() {
     
     //Initializing Variables
     double baseItemPrice1, baseItemPrice2, baseTotalPrice, postItemPrice, reducedPriceClubMemberAmount, taxRateReductionAmount, finalTaxRatePrice, totalPrice;
+    
     double taxRate = 0;
     char hasCustomerCard = ' ';
     
@@ -90,7 +92,7 @@ int main() {
     finalTaxRatePrice = postItemPrice;
     finalTaxRatePrice += taxRateReductionAmount;
 
-    cout << "Total Price: " << finalTaxRatePrice << endl;
+    cout << "Total Price: " << setprecision(7) << finalTaxRatePrice << endl;
     
     return 0;
 }
