@@ -4,8 +4,8 @@
 //
 //  Created by Makan fofana on 7/30/19.
 
-//  Copyright © 2019 Makan fofana. All rights reserved.
 //Question 2:
+
 //Write a program that:
 //• Asks the user for their name.
 //• Asks the user to input their graduation year.
