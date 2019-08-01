@@ -89,6 +89,8 @@ int main() {
                     cout << castedValueMinusOne << endl;
                 } else if (userNumber - 0.5 > castedValueMinusOne) {
                     cout << castedValue << endl;
+                } else {
+                    cout << castedValue << endl;
                 }
             }
             break;
