@@ -63,13 +63,16 @@ int main() {
             if (castedValue > 0) {
                 cout << castedValue << endl;
             } else {
-                cout << castedValue - 1 << endl;
+                if (castedValue - userNumber == 0) {
+                   cout << castedValue << endl;
+                } else {
+                   cout << castedValueMinusOne << endl;
+                }
             }
             break;
         case CEILING_ROUND:
-            if (castedValue > 0) {
-                castedValue += 1;
-                cout << castedValue << endl;
+            if (userNumber - castedValue > 0) {
+                cout << castedValuePlusOne << endl;
             } else {
                 cout << castedValue << endl;
             }
@@ -77,14 +80,13 @@ int main() {
         case ROUND:
             if (castedValue > 0) {
                 if (userNumber + 0.5 > castedValuePlusOne || userNumber == castedValue + 0.5) {
-                    castedValue += 1;
-                    cout << castedValue << endl;
+                    cout << castedValuePlusOne << endl;
                 } else if (userNumber + 0.5 < castedValuePlusOne) {
                     cout << castedValue << endl;
                 }
             } else {
                 if (userNumber - 0.5 < castedValueMinusOne) {
-                    cout << castedValue - 1 << endl;
+                    cout << castedValueMinusOne << endl;
                 } else if (userNumber - 0.5 > castedValueMinusOne) {
                     cout << castedValue << endl;
                 }
