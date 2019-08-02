@@ -48,14 +48,22 @@ int main() {
     subtractQuadraticSolution = (-b - sqrt(quadraticRoot)) / (2*a);
     
     // Situation for infinite of solutions
-    if (a == 0 && b == 0 && c == 0)
+    if (a == 0 && b == 0 && c == 0) {
         NumberOfSolution = "infinite number of solutions";
     // When there are no solutions
-    else if (a == 0 && b == 0 && c != 0)
-        NumberOfSolution = "no solution";
+    }  else if (a == 0 && b == 0 && c != 0) {
+        NumberOfSolution = "one real solution";
+        cout << "This equation has " << NumberOfSolution << endl;
     // Case if there are values for a and implicit that b or c is either 0 or have values
     // if a is 0 then there are infinite # of solutions based on the quadratic formula
-    else if (a != 0) {
+    }  else if (a == 0 && b != 0 && c != 0) {
+        NumberOfSolution = "one real solution";
+        cout << "This equation has " << NumberOfSolution << endl;
+        // Case if there are values for a and implicit that b or c is either 0 or have values
+        // if a is 0 then there are infinite # of solutions based on the quadratic formula
+    }  else if (a == 0 && b != 0 && c == 0){
+         NumberOfSolution = "no solution";
+    }  else if (a != 0) {
         // Case for two real solutions if b^2 - 4ac > 0
         if (quadraticRoot > 0) {
             NumberOfSolution = "two real solutions";
@@ -68,17 +76,17 @@ int main() {
             //to get a real number
         } else
             NumberOfSolution = "no real solution";
-    } else
+    } else {
         // Case if a == 0 and b or c is either 0 or has a value
         NumberOfSolution = "infinite number of solutions";
-    
+    }
     
     
     if (NumberOfSolution == "infinite number of solutions" || NumberOfSolution == "no real solution"
-        || NumberOfSolution == "no solution")
-        
+        || NumberOfSolution == "no solution") {
         cout << "This equation has " << NumberOfSolution << endl;
-    
+        
+    }
     
     return 0;
 }
