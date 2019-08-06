@@ -62,38 +62,3 @@ int main() {
     return 0;
 }
 
-
-
-//if (i % 2 == 0) {
-//
-//    evenIntegerCount = 0;
-//    oddIntegerCount = 0;
-//
-//    while (positiveInteger > 0) {
-//        value = i;
-//        //Storing the current value
-//        currDigit = positiveInteger % 10;
-//
-//        //Determining if value is even or odd
-//        if (currDigit % 2 == 0) {
-//            evenIntegerCount++;
-//        } else {
-//            oddIntegerCount++;
-//        }
-//
-//        // Moving to next digit
-//        positiveInteger /= 10;
-//
-//    }
-//
-//    //Printing the full number value and resetting even & odd integer account to 0 for each new iteration.
-//    i = value;
-//
-//    if (evenIntegerCount > oddIntegerCount) {
-//        cout << i << endl;
-//        }
-//
-//        //Resetting Values
-//        positiveInteger = originalNumber;
-//
-//        }
