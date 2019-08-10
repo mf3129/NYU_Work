@@ -13,38 +13,45 @@
 //
 
 #include <iostream>
+#include <cmath>
 
 using namespace std;
 
 int main() {
     
     //Declaring variables
-    int binaryArray[32];
     int userNumber;
+    int binaryNumber, remainder;
     
     
     cout << "Enter a postive number: " << endl;
     cin >> userNumber;
     
+    //Initializing Variables
+    int count = 1;
+    binaryNumber = 0;
+    remainder = 0;
     
-    int i = 0;
+
     
     //While loop to fill the array with binary numbers
-    while (userNumber > 0) {
+    while (userNumber != 0) {
         
-        binaryArray[i] = userNumber % 2;
+        //Get the remainder
+        remainder = userNumber % 2;
+        
+        //Halve the number
         userNumber /= 2;
-        i++;
+        
+        //Store binaryNumber
+        binaryNumber += remainder * count;
+        
+        //Increment the counter
+        count *= 10;
         
     }
     
-    
-    //Reverse the order of the array
-    for (int j = i - 1; j >= 0; j--) {
-        cout << binaryArray[j];
-    }
-    
-    
+    cout << binaryNumber << endl;
     
     
     return 0;
