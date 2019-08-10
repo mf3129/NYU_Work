@@ -13,14 +13,13 @@
 //
 
 #include <iostream>
-#include <cmath>
 
 using namespace std;
 
 int main() {
     
     //Declaring variables
-    int userNumber;
+    int userNumber, originalUserNumber;
     int binaryNumber, remainder;
     
     
@@ -32,7 +31,7 @@ int main() {
     binaryNumber = 0;
     remainder = 0;
     
-
+    originalUserNumber = userNumber;
     
     //While loop to fill the array with binary numbers
     while (userNumber != 0) {
@@ -51,7 +50,7 @@ int main() {
         
     }
     
-    cout << binaryNumber << endl;
+    cout << "The binary representation of "<< originalUserNumber << " is " << binaryNumber << endl;
     
     
     return 0;
