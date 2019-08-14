@@ -1,45 +1,161 @@
-//Write your; code here.
-//Make sure to upload your file.
-
+//
+//  main.cpp
+//  Exam1Practice
+//
+//  Created by Makan fofana on 8/14/19.
+//  Copyright © 2019 Makan fofana. All rights reserved.
+//
 
 #include <iostream>
+
 using namespace std;
 
 int main() {
     
-    //Practice 1
+    int row, numberOfRows, starCount, spaceCount, tableSize;
+
+    cout << "Enter a number please? ";
+    cin >> numberOfRows;
     
-    int tableSize;
-    int count, firstRowValue;
+//    1
+//    10
+//    101
+//    1010
+//    10101
+//    101010
     
-    cout << "Enter a number to use: " << endl;
-    cin >> tableSize;
-    
-    firstRowValue = 1;
-    
-    //Iterate and create the rows
-    for (int row = 1; row <= tableSize; row++ ){
-        //Create Columns
-        for (int column = 1; column <= tableSize; column++) {
-            //Multiply each number in column by the firstRowValue
-            cout << firstRowValue * column;
-            if ((firstRowValue * column) >= 10) {
-                cout << "  ";
+    //Print Number of rows
+    for (row = 1; row <= numberOfRows; row++) {
+        //Print number of columns
+        //Print number of stars
+        for (starCount = 1; starCount <= row; starCount++) {
+            if (starCount % 2 == 1) {
+                cout << "1";
             } else {
-                cout << "   ";
+                cout << "0";
             }
+            
         }
-    
+        
         cout << endl;
-        //Increment firstRowValue
-        firstRowValue++;
-    
-    
-    }
-    
-    
-        return 0;
     }
     
 
+    
+        /************************************     Printing 1 star increment triangle per line and the turned it into a Diamond     ***************************/
+    
+//    //Print number of rows=
+//    for (int row = 1; row <= tableSize; row++) {
+//
+//        //Print Columns
+//            //Number Of Spaces
+//        for (spaceCount = 0; spaceCount < tableSize - row ; spaceCount++) {
+//            cout << " ";
+//        }
+//            //Number Of Stars
+//        for (starCount = 0; starCount < row ; starCount++) {
+//            cout << "* ";
+//        }
+//
+//        //end the line
+//        cout << endl;
+//    }
+//
+//    //Print number of rows=
+//    for (int row = tableSize-1; row >= 1; row--) {
+//
+//        //Print Columns
+//        //Number Of Spaces
+//        for (spaceCount = 0; spaceCount < tableSize - row ; spaceCount++) {
+//            cout << " ";
+//        }
+//        //Number Of Stars
+//        for (starCount = 0; starCount < row ; starCount++) {
+//            cout << "* ";
+//        }
+//
+//        //end the line
+//        cout << endl;
+//    }
+    
+    
+    //Print number of columns
+    
+    
+    
+    
+    
+    
+    /************************************     Printing Diamond     ***************************/
+//
+//       int lineNumber, starCount, spaceCount, tableSize;
+//
+//    //Printing out rows
+//    for (int lineNumber = 1; lineNumber <= tableSize ; lineNumber++) {
+//        //Printing out columns
+//            //Number of spaces for line
+//        for (spaceCount = 0; spaceCount < tableSize - lineNumber; spaceCount++) {
+//            cout << " ";
+//        }
+//            //Number of Stars for line
+//        for (starCount = 0; starCount < (lineNumber *2) -1 ; starCount++) {
+//            cout << "*";
+//        }
+//
+//        //End line
+//        cout << endl;
+//
+//    }
+//
+//
+//    //Printing out rows
+//    for (int lineNumber = tableSize-1; lineNumber >= 1 ; lineNumber--) {
+//        //Printing out columns
+//        //Number of spaces for line
+//        for (spaceCount = 0; spaceCount < tableSize - lineNumber; spaceCount++) {
+//            cout << " ";
+//        }
+//        //Number of Stars for line
+//        for (starCount = 0; starCount < (lineNumber *2) -1 ; starCount++) {
+//            cout << "*";
+//        }
+//
+//        //End line
+//        cout << endl;
+//
+//    }
+    
+    
+    
+                                        /*************************** Printing Practice *****************************/
+    
+//    //Two Upside Downn Triangles
+//
+//    //Top Triangle
+//    //Printing Rows
+//    for (lineNumber = 0; lineNumber <= tableSize; lineNumber++) {
+//
+//        int n = tableSize - lineNumber;
+//
+//        //Printing Columns
+//        for (starCount = 1; starCount <= n ; starCount++) {
+//            cout << "* ";
+//        }
+//        //End of line through cout endl
+//        cout << endl;
+//    }
+//
+//    //Bottom Triangle
+//    //Printing Rows
+//    for (lineNumber = 1; lineNumber <= tableSize; lineNumber++) {
+//
+//        //Printing Columns
+//        for (starCount = 1; starCount <= lineNumber ; starCount++) {
+//            cout << "* ";
+//        }
+//        //End of line through cout endl
+//        cout << endl;
+//    }
 
+    return 0;
+}
