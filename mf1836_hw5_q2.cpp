@@ -1,155 +1,72 @@
 // Makan Fofana
+//
+//  main.cpp
+//  mf1836_hw4_q6.cpp
+//
+//  Created by Makan fofana on 8/6/19.
+//  Copyright © 2019 Makan fofana. All rights reserved.
 //Question 2:
 //Implement a number guessing game. The program should randomly choose an integer between 1 and 100 (inclusive), and have the user try to guess that number.
 //
 
-
 #include <iostream>
 #include <cstdlib>
 #include <ctime>
-
+#include <string>
 
 using namespace std;
 
-int main() {
-    
-    int range1, range2, ranNumTo99, ranNum1To100ForRange,  ranNum1To100ForComparison ;
-    int userGuess, userGuessPlusOne, userGuessAttempts, numberOfGuessesLeft;
-    bool firstGuess = true;
-    bool outOfGuesses = false;
+const int NUMBER_OF_GUESSES = 5;
+
+int main(){
+    int n, userGuess;
+    string guessStatus;
     
     srand(time(0));
     
-    range1 = rand();
-    range2 = rand();
-    ranNumTo99 = rand() % 100;
-    ranNum1To100ForRange = (rand() % 100) + 1;
-    ranNum1To100ForComparison = (rand() % 100) + 1;
-    numberOfGuessesLeft = 5;
-    userGuessAttempts = 1;
-    userGuessPlusOne = 0;
+    n = (rand() % 100) + 1; // selecting a random value in [1, 100] for n
     
+    cout << "I thought of a number between 1 and 100! Try to guess it." << endl;
     
-    while (outOfGuesses == false) {
-
-        if (firstGuess == true) {
-            
-            cout << "I thought of a number between 1 and 100! Try to guess it." << endl;
-            cin >> userGuess;
-            
-            userGuessPlusOne = userGuess + 1;
-            
-            cout << "Range: [1, 100], Number of guesses left: " << numberOfGuessesLeft << endl;
-            cout << "Your Guess: " << userGuess << endl;
-            
-             //If user guess is equal to the new randomValue -> print the congrats message else continue to ask user question
-            if (userGuess == ranNum1To100ForComparison) {
-                cout << "Congrats! You guessed my number in" << userGuessAttempts << " guesses." << endl;
-                outOfGuesses = true;
-            } else {
-                if (ranNum1To100ForComparison > userGuess) {
-                    cout << "Wrong! My number is bigger." << endl;
-                    userGuessAttempts++;
-                    cout << endl;
-                } else {
-                    cout << "Wrong! My number is smaller." << endl;
-                    userGuessAttempts++;
-                    cout << endl;
-                }
-            }
-            
-            //Decrement User Guesses
-            numberOfGuessesLeft--;
-            
-            //Turning of first Guess
-            firstGuess = false;
-            
-            
-        } else {
-            
-            //Initialize a new end range for each iteration
-            ranNum1To100ForRange = (rand() % 100) + 1;
-            ranNum1To100ForComparison = (rand() % 100) + 1;
-            
-            //Making sure the random end number is greater than user guess
-            if (ranNum1To100ForRange > userGuess) {
-                ranNum1To100ForRange = ranNum1To100ForRange;
-            } else {
-                while (ranNum1To100ForRange < userGuess) {
-                    ranNum1To100ForRange = (rand() % 100) + 1;
-                }
-            }
-            
-            //Making sure the random number is in range
-            if (ranNum1To100ForComparison >= userGuessPlusOne && ranNum1To100ForComparison <= ranNum1To100ForRange) {
-                ranNum1To100ForComparison = ranNum1To100ForComparison;
-            } else {
-                while (ranNum1To100ForComparison < userGuessPlusOne || ranNum1To100ForComparison > ranNum1To100ForRange) {
-                    ranNum1To100ForComparison = (rand() % 100) + 1;
-                }
-            }
-            
-            
-            cout << "Range: [" << userGuessPlusOne << ", " << ranNum1To100ForRange << "], "<< "Number of guesses left: " << numberOfGuessesLeft << endl;
-            cout << "Your Guess: ";
-            cin >> userGuess;
-            
-            
-//            cout << "Here is my guess plus one - "<< userGuessPlusOne << endl;
-
-           
-
-            //If user guess is equal to the new randomValue -> print the congrats message else continue to ask user question
-            if (userGuess == ranNum1To100ForComparison) {
-                cout << "Congrats! You guessed my number in " << userGuessAttempts << " guesses."<< endl;
-                outOfGuesses = true;
-            } else if (userGuessAttempts == 5) {
-                    cout << "Out of guesses! My number is " << ranNum1To100ForComparison << endl;
-                    outOfGuesses = true;
-            } else if (ranNum1To100ForComparison > userGuess) {
-                    cout << "Wrong! My number is bigger." << endl;
-                    cout << "Rand Num chosen " <<  ranNum1To100ForComparison << endl;
-                    cout << endl;
-
-                    userGuessAttempts++;
-            } else {
-                    cout << "Wrong! My number is smaller." << endl;
-                cout << "Rand Num chosen " <<  ranNum1To100ForComparison << endl;
-                    cout << endl;
-                    userGuessAttempts++;
-            }
-
-
-            //Decrement User Guesses
-            numberOfGuessesLeft--;
-
+    int guessesRemaining = NUMBER_OF_GUESSES;
+    bool numberHasBeenGuessed = false;
+    int lowerGuessLimit = 1;
+    int upperGuessLimit = 100;
+    
+    while((!numberHasBeenGuessed) && (guessesRemaining > 0)){
+        cout << "Range: [" << lowerGuessLimit << ", " << upperGuessLimit << "], ";
+        cout << "Number of guesses left: " << guessesRemaining << endl;
+        cout << "Your guess: ";
+        cin >> userGuess;
+        
+        guessesRemaining--;
+        
+        // Calculating the userGuesses
+        
+        if (userGuess < n) {
+            guessStatus = "bigger";
+            lowerGuessLimit = userGuess + 1;
+        } else if (userGuess > n) {
+            guessStatus = "smaller";
+            upperGuessLimit = userGuess - 1;
+        } else { //userGuess == n
+            numberHasBeenGuessed = true;
         }
         
-
-    
-    
+        //While the while loo[ is true
+        if ((guessesRemaining > 0) && (!numberHasBeenGuessed)){
+            cout << "Wrong! My number is " << guessStatus << "." << endl;
+            cout << endl;
+        }
     }
     
-     return 0;
-  }
 
-
+    if (numberHasBeenGuessed) {
+        cout << "Congrats! You guessed my number in " << (NUMBER_OF_GUESSES - guessesRemaining) << " guesses." << endl;
+    } else {
+        cout << "Out of guesses! My number is " << n << endl;
+    }
     
-    //Create new range for user
+    return 0;
     
-    //Create new random guess value
-    
-   
-    
-    //Decrement the numberOfGuessesLeft
-    
-    //Print whether the userGuess is greater or less than the randomGuessValue
-    
-    //If guesses left equals 0, print out of guesses! Print the
-    
-    
-    
-    //    cout << x1 << " " << x2 << " " << x3  << " " << x4;
-    
-    
-    
+}
