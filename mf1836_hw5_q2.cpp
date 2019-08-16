@@ -1,7 +1,7 @@
 // Makan Fofana
 //
 //  main.cpp
-//  mf1836_hw4_q6.cpp
+//  mf1836_hw5_q2.cpp
 //
 //  Created by Makan fofana on 8/6/19.
 //  Copyright © 2019 Makan fofana. All rights reserved.
