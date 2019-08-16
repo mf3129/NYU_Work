@@ -1,72 +1,87 @@
-// Makan Fofana
-//
-//  main.cpp
-//  mf1836_hw5_q2.cpp
-//
-//  Created by Makan fofana on 8/6/19.
-//  Copyright © 2019 Makan fofana. All rights reserved.
-//Question 2:
-//Implement a number guessing game. The program should randomly choose an integer between 1 and 100 (inclusive), and have the user try to guess that number.
-//
-
 #include <iostream>
-#include <cstdlib>
+#include<cstdlib>
 #include <ctime>
-#include <string>
+
 
 using namespace std;
 
-const int NUMBER_OF_GUESSES = 5;
+const int MAX_GUESSES = 5;
 
-int main(){
-    int n, userGuess;
-    string guessStatus;
+int main ()
+
+{
+    
+    int num, low = 1, high = 100;
+    int guess, count = MAX_GUESSES;
+    bool guessedNumber = true;
     
     srand(time(0));
     
-    n = (rand() % 100) + 1; // selecting a random value in [1, 100] for n
+    num = (rand() % 100) + 1; // range 1 - 100
     
-    cout << "I thought of a number between 1 and 100! Try to guess it." << endl;
     
-    int guessesRemaining = NUMBER_OF_GUESSES;
-    bool numberHasBeenGuessed = false;
-    int lowerGuessLimit = 1;
-    int upperGuessLimit = 100;
+    cout << "I thought of a number between 1 and 100!Try to guess it." << endl;
     
-    while((!numberHasBeenGuessed) && (guessesRemaining > 0)){
-        cout << "Range: [" << lowerGuessLimit << ", " << upperGuessLimit << "], ";
-        cout << "Number of guesses left: " << guessesRemaining << endl;
+    // While loop when count = 0 and guessedNumber = false.
+    
+    while (count != 0 && guessedNumber == true) {
+        
+        cout << "Range: [" << low + 1 << ", " << high << "] Number of guess left: " << count << endl;
+        
         cout << "Your guess: ";
-        cin >> userGuess;
+        cin >> guess; // read guess
         
-        guessesRemaining--;
+        // if guess is correct break the loop
         
-        // Calculating the userGuesses
-        
-        if (userGuess < n) {
-            guessStatus = "bigger";
-            lowerGuessLimit = userGuess + 1;
-        } else if (userGuess > n) {
-            guessStatus = "smaller";
-            upperGuessLimit = userGuess - 1;
-        } else { //userGuess == n
-            numberHasBeenGuessed = true;
+        if (guess == num) {
+            cout << "Congrats! You guessed my number in " << 5 - count << " guesses." << endl;
+            guessedNumber = false;
         }
         
-        //While the while loo[ is true
-        if ((guessesRemaining > 0) && (!numberHasBeenGuessed)){
-            cout << "Wrong! My number is " << guessStatus << "." << endl;
-            cout << endl;
+        // if number is bigger
+        if ( count <= 4 ) {
+            
+            if ((guess < num) && (guess >= low) && (guess <= high)) {
+                low = guess; // set the lower bound
+                cout << "Wrong! My number is bigger." << endl;
+            } else if ((guess > num) && (guess >= low) && (guess <= high)){   // if number is smaller
+                high = guess - 1; // set the upper bound
+                cout << "Wrong! My number is smaller." << endl;
+            } else {
+                if (guess < num) {
+                    cout << "Wrong! My number is bigger." << endl;
+                } else {
+                    cout << "Wrong! My number is smaller." << endl;
+                }
+            }
+            
+        } else {
+            
+            if (guess < num) {
+                low = guess; // setting the lower bound
+                cout << "Wrong! My number is bigger." << endl;
+            } else if (guess > num){   // if number is smaller
+                high = guess; // set the upper bound
+                cout << "Wrong! My number is smaller." << endl;
+            }
+            
         }
+        
+        count--;
+        
     }
     
-
-    if (numberHasBeenGuessed) {
-        cout << "Congrats! You guessed my number in " << (NUMBER_OF_GUESSES - guessesRemaining) << " guesses." << endl;
-    } else {
-        cout << "Out of guesses! My number is " << n << endl;
+    
+    
+    // if all guess count is over then
+    if (count == 0) {
+        cout << "Sorry, Number of guesses over. Number is " << num << endl;
     }
     
     return 0;
     
 }
+
+
+
+
