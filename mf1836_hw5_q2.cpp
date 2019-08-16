@@ -20,13 +20,13 @@ int main ()
     num = (rand() % 100) + 1; // range 1 - 100
     
     
-    cout << "I thought of a number between 1 and 100!Try to guess it." << endl;
+    cout << "I thought of a number between 1 and 100! Try to guess it." << endl;
     
     // While loop when count = 0 and guessedNumber = false.
     
     while (count != 0 && guessedNumber == true) {
         
-        cout << "Range: [" << low + 1 << ", " << high << "] Number of guess left: " << count << endl;
+        cout << "Range: [" << low << ", " << high << "] Number of guess left: " << count << endl;
         
         cout << "Your guess: ";
         cin >> guess; // read guess
@@ -42,7 +42,7 @@ int main ()
         if ( count <= 4 ) {
             
             if ((guess < num) && (guess >= low) && (guess <= high)) {
-                low = guess; // set the lower bound
+                low = guess + 1; // set the lower bound
                 cout << "Wrong! My number is bigger." << endl;
             } else if ((guess > num) && (guess >= low) && (guess <= high)){   // if number is smaller
                 high = guess - 1; // set the upper bound
@@ -58,10 +58,10 @@ int main ()
         } else {
             
             if (guess < num) {
-                low = guess; // setting the lower bound
+                low = guess + 1; // setting the lower bound
                 cout << "Wrong! My number is bigger." << endl;
             } else if (guess > num){   // if number is smaller
-                high = guess; // set the upper bound
+                high = guess - 1; // set the upper bound
                 cout << "Wrong! My number is smaller." << endl;
             }
             
