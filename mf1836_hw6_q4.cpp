@@ -20,8 +20,35 @@
 using namespace std;
 
 
-
                                 /**********************  PART A ********************/
+void printDivisors(int num) {
+    
+    for (int i = 1; i <= sqrt(num); i++) {
+        if (num % i == 0) {
+            cout << i << " ";
+        }
+    }
+    for (int i = sqrt(num); i >= 1; i--) {
+        if (num % i == 0 && i != sqrt(num)) {
+            cout << num/i << " ";
+        }
+    }
+    
+    
+}
+
+
+int main() {
+    
+    printDivisors(100);
+
+    return 0;
+}
+
+
+                            /**********************  PART B ********************/
+/*
+
 void printDivisors(int num) {
     
     for (int i = 1; i <= sqrt(num); i++) {
@@ -43,7 +70,7 @@ int main() {
 
     int userNumber;
     
-    cout << "Please enter a positive integer >= 2" << endl;
+    cout << "Please enter a positive integer >= 2: ";
     cin >> userNumber;
     
     printDivisors(userNumber);
@@ -51,3 +78,5 @@ int main() {
     
     return 0;
 }
+
+*/
