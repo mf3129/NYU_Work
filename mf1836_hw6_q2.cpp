@@ -16,33 +16,12 @@
 
 using namespace std;
 
+//Declaring the function prototype
 
-            /******************************       2B        ******************************/
-//void printPineTree(int n, char symbol)
-//It prints a sequence of n triangles of increasing sizes (the smallest triangle is a 2-line triangle), which form the shape of a pine tree. The triangles are filled with the symbol character.
+void printShiftedTriangle(int n, int m, char symbol);
+void printPineTree(int n, char symbol);
 
 
-void printPineTree(int n, char symbol) {
-    
-    //Prints number of triangles
-    for (int i = 1; i <= n; i++) {
-        //Prints rows
-        for (int row = 1; row <= i + 1 ; row++) {
-            
-            //Prints Columns
-            for (int spaceCount = 1; spaceCount <= (n - row) + 1  ; spaceCount++) {
-                cout << " ";
-            }
-            for (int starCount = 1; starCount <= (row * 2) - 1; starCount++) {
-                cout << symbol;
-            }
-    
-            //Breaking the line
-            cout << endl;
-        }
-        
-    }
-}
 
 
 int main() {
@@ -54,50 +33,43 @@ int main() {
     cout << "Enter the size of the triangle and characters seperated by a space: ";
     cin >> triangleSize >> userSymbol;
     
-    //Print the function
+    //Calling the function
     printPineTree(triangleSize, userSymbol);
     
     return 0;
 }
 
 
+//Defining the functions
 
+void printPineTree(int n, char symbol) {
+    
+    //Prints number of triangles
+    for (int i = 1; i <= n; i++) {
+        //Prints rows
+        printShiftedTriangle(i + 1, n, symbol);
+    }
+    
+}
 
-
-
-
-
-                    /******************************       2A        ******************************/
-
-//void printShiftedTriangle(int n, int m, char symbol){
-//    for (int row = 1; row <= n; row++) {
-//        //Columns
-//        for (int spaceCount = 1; spaceCount <= (n - row) + m ; spaceCount++) {
-//            cout << " ";
-//        }
-//        for (int starCount = 1; starCount <= (row * 2) - 1; starCount++) {
-//            cout << symbol;
-//        }
-//
-//        //Breaking the line
-//        cout << endl;
-//    }
-//}
-//
-//
-//int main() {
-//
-//    int triangleSize = 0;
-//    int spaces = 1;
-//    char userSymbol;
-//
-//    cout << "Enter the size of the triangle, spaces from left margin and characters seperated by a space: ";
-//    cin >> triangleSize >> spaces >> userSymbol;
-//
-//    //Print the function
-//    printShiftedTriangle(triangleSize, spaces, userSymbol);
-//
-//
-//    return 0;
-//}
-//
+void printShiftedTriangle(int n, int m, char symbol) {
+    
+    //Declaring variables
+    int countForSymbol;
+    int row;
+    
+    //Number of Rows - Derementing space by count of 1 and incrermenting by count of 2. 
+    for (row = 1, countForSymbol = 1; row <= n; row++, m--, countForSymbol+=2) {
+        
+        //Number of Columns
+        for (int spaceCount = 1; spaceCount <=  m ; spaceCount++) {
+            cout << " ";
+        }
+        for (int starCount = 1; starCount <= countForSymbol; starCount++) {
+            cout << symbol;
+        }
+    
+        cout << endl;
+    }
+    
+}
