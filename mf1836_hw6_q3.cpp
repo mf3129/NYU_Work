@@ -20,7 +20,7 @@ double eApprox(int n) {
     double individualSum = 1.0;
     
     
-    for (int i = n - 1; i > 0; --i) {
+    for (int i = n; i > 0; --i) {
         totalSum = 1 + individualSum * totalSum/i;
     }
     
