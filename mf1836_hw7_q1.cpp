@@ -11,10 +11,6 @@
  
  */
 
-
-
-
-
 #include <iostream>
 
 using namespace std;
@@ -23,19 +19,23 @@ using namespace std;
 
 //Declaring Function Prototype
 int printMonthCalendar(int numOfDays, int startingDay);
-
+bool isALeapYear(int year);
 
 
 
 int main() {
     
-    printMonthCalendar(31, 4);
+   // Part A - printMonthCalendar(31, 4);
+    
+   // Part B
+    isALeapYear(1896);
     
     return 0;
 }
 
 
 //Defining Functions
+
 int printMonthCalendar(int numOfDays, int startingDay) {
     
     //Printing the header
@@ -68,3 +68,22 @@ int printMonthCalendar(int numOfDays, int startingDay) {
     
     return finalDay;
 }
+
+
+
+//////////////Part B
+
+bool isALeapYear(int year) {
+        
+    if (((year % 4 == 0) && (year % 100 != 0)) || (year % 400 == 0)) {
+        return true;
+    } else {
+        return false;
+    }
+    
+}
+
+
+
+///// PART C
+
