@@ -27,8 +27,17 @@ void printYearCalendar(int year, int startingDay);
 int main() {
     
    // Part A - printMonthCalendar(31, 4);
+    int yearNumber;
+    int tabNumber;
     
-    printYearCalendar(2016, 4);
+    cout << "Enter a year: ";
+    cin >> yearNumber;
+    
+    cout << "Enter the number of spaces: ";
+    cin >> tabNumber
+    ;
+    
+    printYearCalendar(yearNumber, tabNumber);
     
     return 0;
 }
