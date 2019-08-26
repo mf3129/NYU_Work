@@ -20,6 +20,7 @@ using namespace std;
 //Declaring Function Prototype
 int printMonthCalendar(int numOfDays, int startingDay);
 bool isALeapYear(int year);
+void printYearCalendar(int year, int startingDay);
 
 
 
@@ -27,14 +28,15 @@ int main() {
     
    // Part A - printMonthCalendar(31, 4);
     
-   // Part B
-    isALeapYear(1896);
+    printYearCalendar(2016, 4);
     
     return 0;
 }
 
 
 //Defining Functions
+
+                                            /*****************************   Part A   **********************************/
 
 int printMonthCalendar(int numOfDays, int startingDay) {
     
@@ -71,7 +73,7 @@ int printMonthCalendar(int numOfDays, int startingDay) {
 
 
 
-//////////////Part B
+                                    /*****************************   Part B   **********************************/
 
 bool isALeapYear(int year) {
         
@@ -85,5 +87,32 @@ bool isALeapYear(int year) {
 
 
 
-///// PART C
+                                    /*****************************   Part C   **********************************/
 
+void printYearCalendar(int year, int startingDay) {
+    
+    string month [12] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
+    int daysInMonth [12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    
+    //Print if it is a leapYear
+    if (isALeapYear(year)) {
+        cout << year << " is a leap year" << endl;
+    } else {
+        cout << year << " is not a leap year" << endl;
+    }
+
+    if (isALeapYear(year)) {
+        //Accouting for the leap year
+        daysInMonth [1] = 29;
+        
+        //Looping through the array
+        for (int i = 0; i < 12; i++) {
+            //Print the header for each month
+            cout << month[i] << " " << year << endl;
+            startingDay = printMonthCalendar(daysInMonth[i], startingDay);
+            cout << endl;
+        }
+    }
+
+    
+}
