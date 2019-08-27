@@ -102,13 +102,14 @@ void printYearCalendar(int year, int startingDay) {
     
     string month [12] = {"January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"};
     int daysInMonth [12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
+    int finalDay;
     
-    //Print if it is a leapYear
-    if (isALeapYear(year)) {
-        cout << year << " is a leap year" << endl;
-    } else {
-        cout << year << " is not a leap year" << endl;
-    }
+//    //Print if it is a leapYear
+//    if (isALeapYear(year)) {
+//        cout << year << " is a leap year" << endl;
+//    } else {
+//        cout << year << " is not a leap year" << endl;
+//    }
 
     if (isALeapYear(year)) {
         //Accouting for the leap year
@@ -118,7 +119,8 @@ void printYearCalendar(int year, int startingDay) {
         for (int i = 0; i < 12; i++) {
             //Print the header for each month
             cout << month[i] << " " << year << endl;
-            startingDay = printMonthCalendar(daysInMonth[i], startingDay);
+            finalDay = printMonthCalendar(daysInMonth[i], startingDay);
+            startingDay = finalDay + 1;
             cout << endl;
         }
     }
