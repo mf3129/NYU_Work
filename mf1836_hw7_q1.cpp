@@ -77,7 +77,6 @@ int printMonthCalendar(int numOfDays, int startingDay) {
     
     cout << endl;
     
-    //cout << "\nThe day number in the week of the last day in the month is: " << finalDay << endl;
     
     return finalDay;
 }
