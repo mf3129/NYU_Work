@@ -52,7 +52,7 @@ int printMonthCalendar(int numOfDays, int startingDay) {
     //Printing the header
     cout << "Mon" << '\t' << "Tue" << '\t' << "Wed" << '\t' << "Thr" << '\t' << "Fri" << '\t' << "Sat" << '\t' << "Sun" << endl;
     
-        int currentDay = 0, finalDay, positionNumber = 1;
+    int currentDay = 0, finalDay, positionNumber = 1;
     
         for (positionNumber; positionNumber < numOfDays + startingDay; positionNumber++) {
             
@@ -75,7 +75,9 @@ int printMonthCalendar(int numOfDays, int startingDay) {
     
     finalDay = (positionNumber - 1) % 7;
     
-    cout << "\nThe day number in the week of the last day in the month is: " << finalDay << endl;
+    cout << endl;
+    
+    //cout << "\nThe day number in the week of the last day in the month is: " << finalDay << endl;
     
     return finalDay;
 }
@@ -104,12 +106,6 @@ void printYearCalendar(int year, int startingDay) {
     int daysInMonth [12] = {31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31};
     int finalDay;
     
-//    //Print if it is a leapYear
-//    if (isALeapYear(year)) {
-//        cout << year << " is a leap year" << endl;
-//    } else {
-//        cout << year << " is not a leap year" << endl;
-//    }
 
     if (isALeapYear(year)) {
         //Accouting for the leap year
